@@ -35,4 +35,30 @@ class SocialLoginController extends Controller
         return redirect()->route('dashboard');
 
     }
+
+
+
+    public function google()
+    {
+        //send the user request to google
+        return Socialite::driver('google')->redirect();
+    }
+    public function googleRedirect()
+    {
+        //get request back from google
+        $user = Socialite::driver('google')->user();
+
+        $createOrCheck = User::firstOrCreate([
+            'email' => $user->email
+        ],[
+            'name' => $user->name,
+            'email' => $user->email,
+            'password' => Hash::make(Str::random(25)),
+        ]);
+
+        Auth::login($createOrCheck, true);
+
+        return redirect()->route('dashboard');
+
+    }
 }

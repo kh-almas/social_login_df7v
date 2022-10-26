@@ -27,3 +27,6 @@ require __DIR__.'/auth.php';
 
 Route::get('/sign-in/github',[SocialLoginController::class,'github'])->name('github.login');
 Route::get('/sign-in/github/redirect',[SocialLoginController::class,'githubRedirect']);
+
+Route::get('/sign-in/google',[SocialLoginController::class,'google'])->name('google.login');
+Route::get('/sign-in/google/redirect',[SocialLoginController::class,'googleRedirect']);
