@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialLoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/sign-in/github',[SocialLoginController::class,'github'])->name('github.login');
+Route::get('/sign-in/github/redirect',[SocialLoginController::class,'githubRedirect']);

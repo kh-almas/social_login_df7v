@@ -51,7 +51,13 @@
                 <x-primary-button class="ml-3">
                     {{ __('Log in') }}
                 </x-primary-button>
+
             </div>
+
+
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 py-12-6" href="{{ route('github.login') }}">
+                    {{ __('Login with github') }}
+                </a>
         </form>
     </x-auth-card>
 </x-guest-layout>
